@@ -62,22 +62,22 @@ struct AppTheme {
     }
     
     // MARK: - Shadow
-    struct Shadow {
-        static let small = Shadow(
+    struct AppShadow {
+        static let small = AppShadow(
             color: Color.black.opacity(0.08),
             radius: 2,
             x: 0,
             y: 1
         )
         
-        static let medium = Shadow(
+        static let medium = AppShadow(
             color: Color.black.opacity(0.12),
             radius: 4,
             x: 0,
             y: 2
         )
         
-        static let large = Shadow(
+        static let large = AppShadow(
             color: Color.black.opacity(0.15),
             radius: 8,
             x: 0,
@@ -106,15 +106,15 @@ struct AppTheme {
 // MARK: - View Extensions
 extension View {
     func shadowSmall() -> some View {
-        shadow(color: AppTheme.Shadow.small.color, radius: AppTheme.Shadow.small.radius, x: AppTheme.Shadow.small.x, y: AppTheme.Shadow.small.y)
+        shadow(color: AppTheme.AppShadow.small.color, radius: AppTheme.AppShadow.small.radius, x: AppTheme.AppShadow.small.x, y: AppTheme.AppShadow.small.y)
     }
     
     func shadowMedium() -> some View {
-        shadow(color: AppTheme.Shadow.medium.color, radius: AppTheme.Shadow.medium.radius, x: AppTheme.Shadow.medium.x, y: AppTheme.Shadow.medium.y)
+        shadow(color: AppTheme.AppShadow.medium.color, radius: AppTheme.AppShadow.medium.radius, x: AppTheme.AppShadow.medium.x, y: AppTheme.AppShadow.medium.y)
     }
     
     func shadowLarge() -> some View {
-        shadow(color: AppTheme.Shadow.large.color, radius: AppTheme.Shadow.large.radius, x: AppTheme.Shadow.large.x, y: AppTheme.Shadow.large.y)
+        shadow(color: AppTheme.AppShadow.large.color, radius: AppTheme.AppShadow.large.radius, x: AppTheme.AppShadow.large.x, y: AppTheme.AppShadow.large.y)
     }
     
     func cornered(_ radius: CGFloat = AppTheme.CornerRadius.md) -> some View {

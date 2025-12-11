@@ -1,4 +1,5 @@
 import Foundation
+import Security
 
 @MainActor
 class AuthViewModel: ObservableObject {

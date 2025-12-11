@@ -63,4 +63,3 @@ class PetService {
     }
 }
 
-struct EmptyResponse: Decodable {}
