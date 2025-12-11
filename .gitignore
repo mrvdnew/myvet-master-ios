@@ -1,0 +1,93 @@
+# Xcode
+build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/
+*.xcworkspace/xcshareddata/
+
+# Derived Data
+DerivedData/
+
+# Build products
+*.o
+*.a
+*.dSYM/
+*.su
+*.gch
+*.pch
+
+# Executables
+*.out
+*.app
+*.exe
+*.dll
+*.dylib
+*.so
+*.swiftmodule/
+
+# Debugging
+*.dSYM
+dsymutil
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/
+Cartfile.resolved
+
+# SwiftPM
+.build/
+.swiftpm/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Misc
+*.log
+*.swp
+*.swo
+*~
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# Package manager locks (optional - uncomment if desired)
+# Gemfile.lock
+# Package.resolved
