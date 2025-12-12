@@ -18,21 +18,40 @@ class AuthViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        do {
-            // TODO: Implement actual login API call
-            // For now, this is a placeholder
-            let response = try await loginWithAPI(email: email, password: password)
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        
+        // Mock authentication - accept any email/password for demo
+        if !email.isEmpty && !password.isEmpty {
+            // Create mock user
+            let mockUser = User(
+                id: UUID().uuidString,
+                firstName: "Juan",
+                lastName: "Pérez",
+                email: email,
+                phoneNumber: "+52 555 123 4567",
+                address: Address(
+                    street: "Av. Principal 123",
+                    city: "Ciudad de México",
+                    state: "CDMX",
+                    zipCode: "01000",
+                    country: "México"
+                ),
+                profileImageUrl: nil,
+                createdAt: Date(),
+                updatedAt: Date()
+            )
             
-            // Store token in keychain
-            try keychain.store(token: response.token, for: email)
+            // Store mock token
+            try? keychain.store(token: "mock_token_\(UUID().uuidString)", for: email)
             
             isAuthenticated = true
-            currentUser = response.user
-            isLoading = false
-        } catch {
-            errorMessage = error.localizedDescription
-            isLoading = false
+            currentUser = mockUser
+        } else {
+            errorMessage = "Email y contraseña son requeridos"
         }
+        
+        isLoading = false
     }
     
     @MainActor
@@ -47,19 +66,21 @@ class AuthViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        do {
-            // TODO: Implement actual registration API call
-            let response = try await registerWithAPI(user: user, password: password)
-            
-            try keychain.store(token: response.token, for: user.email)
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        
+        // Mock registration - accept any valid data for demo
+        if !user.email.isEmpty && !password.isEmpty {
+            // Store mock token
+            try? keychain.store(token: "mock_token_\(UUID().uuidString)", for: user.email)
             
             isAuthenticated = true
-            currentUser = response.user
-            isLoading = false
-        } catch {
-            errorMessage = error.localizedDescription
-            isLoading = false
+            currentUser = user
+        } else {
+            errorMessage = "Datos de registro inválidos"
         }
+        
+        isLoading = false
     }
     
     private func restoreAuthenticationState() {
