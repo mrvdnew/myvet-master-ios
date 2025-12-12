@@ -151,7 +151,8 @@ struct UpcomingAppointmentsSection: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: Text("All Appointments")) {
+                // TODO: Navigate to Appointments tab
+                Button(action: {}) {
                     Text("See All")
                         .font(AppTheme.Typography.caption)
                         .foregroundColor(AppTheme.Colors.primary)
@@ -259,7 +260,8 @@ struct PetsSummarySection: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: Text("All Pets")) {
+                // TODO: Navigate to Pets tab
+                Button(action: {}) {
                     Text("See All")
                         .font(AppTheme.Typography.caption)
                         .foregroundColor(AppTheme.Colors.primary)
