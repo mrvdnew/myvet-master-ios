@@ -23,13 +23,50 @@ class AppointmentsViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        do {
-            appointments = try await appointmentService.fetchAppointments(userId: userId)
-            isLoading = false
-        } catch {
-            errorMessage = error.localizedDescription
-            isLoading = false
-        }
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 500_000_000)
+        
+        // Mock appointments for demo
+        appointments = [
+            Appointment(
+                id: UUID().uuidString,
+                petId: UUID().uuidString,
+                veterinarianId: UUID().uuidString,
+                clinicId: UUID().uuidString,
+                dateTime: Date().addingTimeInterval(86400 * 2), // 2 days from now
+                duration: 30,
+                serviceType: "checkup",
+                status: .scheduled,
+                notes: "Chequeo general de rutina",
+                reminderSent: false
+            ),
+            Appointment(
+                id: UUID().uuidString,
+                petId: UUID().uuidString,
+                veterinarianId: UUID().uuidString,
+                clinicId: UUID().uuidString,
+                dateTime: Date().addingTimeInterval(86400 * 5), // 5 days from now
+                duration: 45,
+                serviceType: "vaccination",
+                status: .confirmed,
+                notes: "Vacuna antirrábica",
+                reminderSent: true
+            ),
+            Appointment(
+                id: UUID().uuidString,
+                petId: UUID().uuidString,
+                veterinarianId: UUID().uuidString,
+                clinicId: UUID().uuidString,
+                dateTime: Date().addingTimeInterval(-86400 * 3), // 3 days ago
+                duration: 60,
+                serviceType: "dental",
+                status: .completed,
+                notes: "Limpieza dental completa",
+                reminderSent: true
+            )
+        ]
+        
+        isLoading = false
     }
     
     @MainActor
@@ -46,12 +83,24 @@ class AppointmentsViewModel: ObservableObject {
     
     @MainActor
     func bookAppointment(_ appointmentData: [String: Any]) async {
-        do {
-            let newAppointment = try await appointmentService.createAppointment(appointmentData: appointmentData)
-            appointments.append(newAppointment)
-        } catch {
-            errorMessage = error.localizedDescription
-        }
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 500_000_000)
+        
+        // Create mock appointment
+        let newAppointment = Appointment(
+            id: UUID().uuidString,
+            petId: UUID().uuidString,
+            veterinarianId: UUID().uuidString,
+            clinicId: UUID().uuidString,
+            dateTime: Date().addingTimeInterval(86400 * 7), // 7 days from now
+            duration: appointmentData["duration"] as? Int ?? 30,
+            serviceType: appointmentData["service_type"] as? String ?? "checkup",
+            status: .scheduled,
+            notes: appointmentData["notes"] as? String,
+            reminderSent: false
+        )
+        
+        appointments.append(newAppointment)
     }
     
     @MainActor

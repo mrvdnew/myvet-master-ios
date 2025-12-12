@@ -3,27 +3,34 @@ import SwiftUI
 struct AppTheme {
     // MARK: - Colors
     struct Colors {
-        // Primary Colors
-        static let primary = Color(red: 0.0, green: 0.48, blue: 1.0) // iOS Blue
-        static let primaryDark = Color(red: 0.0, green: 0.39, blue: 0.81)
+        // Primary Colors - MyVet Green
+        static let primary = Color(red: 0.30, green: 0.63, blue: 0.31)
+        static let primaryDark = Color(red: 0.25, green: 0.53, blue: 0.26)
         
-        // Secondary Colors
-        static let secondary = Color(red: 0.5, green: 0.5, blue: 0.5)
-        static let secondaryLight = Color(red: 0.8, green: 0.8, blue: 0.8)
+        // Secondary Colors - Orange
+        static let secondary = Color(red: 1.0, green: 0.60, blue: 0.0)
+        static let secondaryLight = Color(red: 1.0, green: 0.70, blue: 0.2)
         
         // Accent Colors
-        static let success = Color(red: 0.34, green: 0.85, blue: 0.39)
-        static let warning = Color(red: 1.0, green: 0.8, blue: 0.0)
+        static let success = Color(red: 0.30, green: 0.63, blue: 0.31)
+        static let warning = Color(red: 1.0, green: 0.60, blue: 0.0)
         static let error = Color(red: 1.0, green: 0.23, blue: 0.19)
         static let info = Color(red: 0.0, green: 0.48, blue: 1.0)
         
+        // Status Colors for Appointments
+        static let scheduled = Color(red: 0.30, green: 0.63, blue: 0.31) // Green
+        static let confirmed = Color.cyan
+        static let completed = Color.gray
+        static let cancelled = Color.red
+        
         // Background Colors
-        static let background = Color(.systemBackground)
+        static let background = Color(red: 0.96, green: 0.94, blue: 0.92)
+        static let cardBackground = Color.white
         static let secondaryBackground = Color(.systemGray6)
         
         // Text Colors
-        static let text = Color(.label)
-        static let textSecondary = Color(.secondaryLabel)
+        static let text = Color.black
+        static let textSecondary = Color.gray
         static let textTertiary = Color(.tertiaryLabel)
     }
     
