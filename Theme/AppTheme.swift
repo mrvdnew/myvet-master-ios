@@ -3,22 +3,23 @@ import SwiftUI
 struct AppTheme {
     // MARK: - Colors
     struct Colors {
-        // Primary Colors
-        static let primary = Color(red: 0.0, green: 0.48, blue: 1.0) // iOS Blue
-        static let primaryDark = Color(red: 0.0, green: 0.39, blue: 0.81)
+        // Primary Colors (Android-inspired green)
+        static let primary = Color(red: 0.298, green: 0.686, blue: 0.314) // #4CAF50
+        static let primaryDark = Color(red: 0.235, green: 0.549, blue: 0.251)
         
-        // Secondary Colors
-        static let secondary = Color(red: 0.5, green: 0.5, blue: 0.5)
-        static let secondaryLight = Color(red: 0.8, green: 0.8, blue: 0.8)
+        // Secondary Colors (Android-inspired orange)
+        static let secondary = Color(red: 1.0, green: 0.596, blue: 0.0) // #FF9800
+        static let secondaryLight = Color(red: 1.0, green: 0.718, blue: 0.298)
         
         // Accent Colors
+        static let accent = Color(red: 0.012, green: 0.855, blue: 0.773) // #03DAC5 Teal
         static let success = Color(red: 0.34, green: 0.85, blue: 0.39)
         static let warning = Color(red: 1.0, green: 0.8, blue: 0.0)
         static let error = Color(red: 1.0, green: 0.23, blue: 0.19)
         static let info = Color(red: 0.0, green: 0.48, blue: 1.0)
         
         // Background Colors
-        static let background = Color(.systemBackground)
+        static let background = Color(red: 0.961, green: 0.945, blue: 0.922) // #F5F1EB Beige
         static let secondaryBackground = Color(.systemGray6)
         
         // Text Colors
@@ -126,8 +127,10 @@ extension View {
 extension Color {
     static let appPrimary = AppTheme.Colors.primary
     static let appSecondary = AppTheme.Colors.secondary
+    static let appAccent = AppTheme.Colors.accent
     static let appSuccess = AppTheme.Colors.success
     static let appWarning = AppTheme.Colors.warning
     static let appError = AppTheme.Colors.error
     static let appInfo = AppTheme.Colors.info
+    static let appBackground = AppTheme.Colors.background
 }
